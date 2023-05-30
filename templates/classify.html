@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Classify Text</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+  <header>
+    <h1>Sarcastic or Not?</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('classify_text') }}">Classify Text</a></li>
+      <li><a href="{{ url_for('generate_text') }}">Generate Text</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2>Enter Text to Classify</h2>
+    <form action="{{ url_for('classify') }}" method="post">
+      <label for="text">Text:</label>
+      <textarea id="text" name="text" rows="5" cols="50" required></textarea><br>
+      <label for="model">Model:</label>
+      <select id="model" name="model">
+        <option value="bilstm">BiLSTM</option>
+        <option value="lstm">LSTM</option>
+        <option value="gru">GRU</option>
+      </select><br>
+      <input type="submit" value="Classify">
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Flask App. All rights reserved.</p>
+  </footer>
+</body>
+
+</html>

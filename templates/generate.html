@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generate Text</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+  <header>
+    <h1>Text Generation</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('classify_text') }}">Classify Text</a></li>
+      <li><a href="{{ url_for('generate_text') }}">Generate Text</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2>Enter Seed Text to Generate</h2>
+    <form action="{{ url_for('generate') }}" method="post">
+      <label for="seed_text">Seed Text:</label>
+      <input type="text" id="seed_text" name="seed_text" required><br>
+      <label for="model">Model:</label>
+      <select id="model" name="model">
+        <option value="bilstm">BiLSTM</option>
+        <option value="lstm">LSTM</option>
+        <option value="gru">GRU</option>
+      </select><br>
+      <label for="next_words">Number of next words:</label>
+      <input type="number" id="next_words" name="next_words" min="1" max="100" required><br>
+      <input type="submit" value="Generate">
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Flask App. All rights reserved.</p>
+  </footer>
+</body>
+
+</html>

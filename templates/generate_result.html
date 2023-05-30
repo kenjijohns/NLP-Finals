@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generation Result</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+  <header>
+    <h1>Generation Result</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('classify_text') }}">Classify Text</a></li>
+      <li><a href="{{ url_for('generate_text') }}">Generate Text</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2>Seed Text: {{ seed_text }}</h2>
+    <h3>Generated Text:</h3>
+    <p>{{ generated_text }}</p>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Flask App. All rights reserved.</p>
+  </footer>
+</body>
+
+</html>
